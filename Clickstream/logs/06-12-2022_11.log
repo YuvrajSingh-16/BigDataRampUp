@@ -1,0 +1,84 @@
+
+
+[+] Checking Older Archives...
+Deleted /user/hadoopusr/clickstream/archive_data/28-11-2022.har
+
+
+[+] Archiving Data...
+22/12/06 11:18:22 INFO client.RMProxy: Connecting to ResourceManager at /0.0.0.0:8032
+22/12/06 11:18:23 INFO client.RMProxy: Connecting to ResourceManager at /0.0.0.0:8032
+22/12/06 11:18:23 INFO client.RMProxy: Connecting to ResourceManager at /0.0.0.0:8032
+22/12/06 11:18:23 INFO mapreduce.JobSubmitter: number of splits:1
+22/12/06 11:18:23 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1670304746608_0001
+22/12/06 11:18:24 INFO conf.Configuration: resource-types.xml not found
+22/12/06 11:18:24 INFO resource.ResourceUtils: Unable to find 'resource-types.xml'.
+22/12/06 11:18:24 INFO resource.ResourceUtils: Adding resource type - name = memory-mb, units = Mi, type = COUNTABLE
+22/12/06 11:18:24 INFO resource.ResourceUtils: Adding resource type - name = vcores, units = , type = COUNTABLE
+22/12/06 11:18:24 INFO impl.YarnClientImpl: Submitted application application_1670304746608_0001
+22/12/06 11:18:24 INFO mapreduce.Job: The url to track the job: http://uvsingh-workstation:8088/proxy/application_1670304746608_0001/
+22/12/06 11:18:24 INFO mapreduce.Job: Running job: job_1670304746608_0001
+22/12/06 11:18:30 INFO mapreduce.Job: Job job_1670304746608_0001 running in uber mode : false
+22/12/06 11:18:30 INFO mapreduce.Job:  map 0% reduce 0%
+22/12/06 11:18:36 INFO mapreduce.Job:  map 100% reduce 0%
+22/12/06 11:18:40 INFO mapreduce.Job:  map 100% reduce 100%
+22/12/06 11:18:41 INFO mapreduce.Job: Job job_1670304746608_0001 completed successfully
+22/12/06 11:18:41 INFO mapreduce.Job: Counters: 49
+	File System Counters
+		FILE: Number of bytes read=299
+		FILE: Number of bytes written=421767
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=240782131
+		HDFS: Number of bytes written=240781974
+		HDFS: Number of read operations=13
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=11
+	Job Counters 
+		Launched map tasks=1
+		Launched reduce tasks=1
+		Other local map tasks=1
+		Total time spent by all maps in occupied slots (ms)=3350
+		Total time spent by all reduces in occupied slots (ms)=2186
+		Total time spent by all map tasks (ms)=3350
+		Total time spent by all reduce tasks (ms)=2186
+		Total vcore-milliseconds taken by all map tasks=3350
+		Total vcore-milliseconds taken by all reduce tasks=2186
+		Total megabyte-milliseconds taken by all map tasks=3430400
+		Total megabyte-milliseconds taken by all reduce tasks=2238464
+	Map-Reduce Framework
+		Map input records=3
+		Map output records=3
+		Map output bytes=287
+		Map output materialized bytes=299
+		Input split bytes=121
+		Combine input records=0
+		Combine output records=0
+		Reduce input groups=3
+		Reduce shuffle bytes=299
+		Reduce input records=3
+		Reduce output records=0
+		Spilled Records=6
+		Shuffled Maps =1
+		Failed Shuffles=0
+		Merged Map outputs=1
+		GC time elapsed (ms)=133
+		CPU time spent (ms)=1940
+		Physical memory (bytes) snapshot=505212928
+		Virtual memory (bytes) snapshot=3775418368
+		Total committed heap usage (bytes)=318767104
+	Shuffle Errors
+		BAD_ID=0
+		CONNECTION=0
+		IO_ERROR=0
+		WRONG_LENGTH=0
+		WRONG_MAP=0
+		WRONG_REDUCE=0
+	File Input Format Counters 
+		Bytes Read=334
+	File Output Format Counters 
+		Bytes Written=0
+Deleted /user/hadoopusr/clickstream/archive_data/05-12-2022
+
+
+[+] Creating current day directory...

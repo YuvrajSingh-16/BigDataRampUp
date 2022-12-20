@@ -1,0 +1,630 @@
+[+] Generating data
+log4j:WARN No appenders could be found for logger (org.apache.hadoop.metrics2.lib.MutableMetricsFactory).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+[+] 100000 Rows Data Generation Done!!!
+[+] Completed!
+
+
+[+] Adding new JSON to the Archive location...
+[+] Completed!
+
+
+[+] Calling MR Job for LocationWise Analysis
+log4j:WARN No appenders could be found for logger (org.apache.hadoop.metrics2.lib.MutableMetricsFactory).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+[+] mapreduce.framework set to local
+[+] All configurations are set !!!
+Dec 08, 2022 2:14:06 PM com.uvsingh.mr.MyMapper <init>
+INFO: [+] Mapper Object Created.
+Dec 08, 2022 2:14:07 PM com.uvsingh.mr.MyCombiner <init>
+INFO: [+] MyCombiner object created.
+Dec 08, 2022 2:14:07 PM com.uvsingh.mr.MyReducer <init>
+INFO: [+] MyReducer Object Created.
+Dec 08, 2022 2:14:08 PM com.uvsingh.mr.MyDriver main
+INFO: MAP-REDUCE ANALYSIS JOB COMPLETED
+[+] Completed!
+
+
+[+] Inserting Data into clickstream table
+
+Logging initialized using configuration in jar:file:/usr/local/hive/lib/hive-common-2.3.9.jar!/hive-log4j2.properties Async: true
+OK
+Time taken: 3.627 seconds
+OK
+Time taken: 0.209 seconds
+Loading data to table clickstream_db.clickstream_tmp
+OK
+Time taken: 0.446 seconds
+OK
+Time taken: 3.322 seconds
+WARNING: Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
+Query ID = hadoopusr_20221208141420_2a6ca97e-3008-4bb6-b10e-f2836e574b8a
+Total jobs = 2
+Launching Job 1 out of 2
+Number of reduce tasks determined at compile time: 4
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1670481149141_0002, Tracking URL = http://uvsingh-workstation:8088/proxy/application_1670481149141_0002/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1670481149141_0002
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 4
+2022-12-08 14:14:25,494 Stage-1 map = 0%,  reduce = 0%
+2022-12-08 14:14:30,663 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 3.07 sec
+2022-12-08 14:14:43,357 Stage-1 map = 100%,  reduce = 25%, Cumulative CPU 6.7 sec
+2022-12-08 14:14:44,387 Stage-1 map = 100%,  reduce = 50%, Cumulative CPU 8.25 sec
+2022-12-08 14:14:46,470 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 15.57 sec
+MapReduce Total cumulative CPU time: 15 seconds 570 msec
+Ended Job = job_1670481149141_0002
+Loading data to table clickstream_db.clickstream partition (location=null)
+
+
+	 Time taken to load dynamic partitions: 3.461 seconds
+	 Time taken for adding to write entity : 0.003 seconds
+Launching Job 2 out of 2
+Number of reduce tasks not specified. Estimated from input data size: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1670481149141_0003, Tracking URL = http://uvsingh-workstation:8088/proxy/application_1670481149141_0003/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1670481149141_0003
+Hadoop job information for Stage-3: number of mappers: 1; number of reducers: 1
+2022-12-08 14:14:58,567 Stage-3 map = 0%,  reduce = 0%
+2022-12-08 14:15:02,672 Stage-3 map = 100%,  reduce = 0%, Cumulative CPU 1.1 sec
+2022-12-08 14:15:08,848 Stage-3 map = 100%,  reduce = 100%, Cumulative CPU 3.01 sec
+MapReduce Total cumulative CPU time: 3 seconds 10 msec
+Ended Job = job_1670481149141_0003
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1  Reduce: 4   Cumulative CPU: 15.57 sec   HDFS Read: 24049416 HDFS Write: 22202190 SUCCESS
+Stage-Stage-3: Map: 1  Reduce: 1   Cumulative CPU: 3.01 sec   HDFS Read: 228560 HDFS Write: 85201 SUCCESS
+Total MapReduce CPU Time Spent: 18 seconds 580 msec
+OK
+Time taken: 52.147 seconds
+
+
+[+] Calling HIVE Job MostActiveUsers.hql
+
+Logging initialized using configuration in jar:file:/usr/local/hive/lib/hive-common-2.3.9.jar!/hive-log4j2.properties Async: true
+OK
+Time taken: 4.648 seconds
+OK
+Time taken: 0.486 seconds
+WARNING: Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
+Query ID = hadoopusr_20221208141522_6f1b2ec5-c952-4d42-8989-058f1f06b3a1
+Total jobs = 2
+Launching Job 1 out of 2
+Number of reduce tasks not specified. Estimated from input data size: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1670481149141_0004, Tracking URL = http://uvsingh-workstation:8088/proxy/application_1670481149141_0004/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1670481149141_0004
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+2022-12-08 14:15:28,430 Stage-1 map = 0%,  reduce = 0%
+2022-12-08 14:15:33,578 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 2.92 sec
+2022-12-08 14:15:37,681 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 3.86 sec
+MapReduce Total cumulative CPU time: 3 seconds 860 msec
+Ended Job = job_1670481149141_0004
+Launching Job 2 out of 2
+Number of reduce tasks determined at compile time: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1670481149141_0005, Tracking URL = http://uvsingh-workstation:8088/proxy/application_1670481149141_0005/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1670481149141_0005
+Hadoop job information for Stage-2: number of mappers: 1; number of reducers: 1
+2022-12-08 14:15:48,260 Stage-2 map = 0%,  reduce = 0%
+2022-12-08 14:15:52,367 Stage-2 map = 100%,  reduce = 0%, Cumulative CPU 1.02 sec
+2022-12-08 14:15:56,460 Stage-2 map = 100%,  reduce = 100%, Cumulative CPU 2.31 sec
+MapReduce Total cumulative CPU time: 2 seconds 310 msec
+Ended Job = job_1670481149141_0005
+Loading data to table clickstream_db.activeusers
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 3.86 sec   HDFS Read: 22016417 HDFS Write: 731 SUCCESS
+Stage-Stage-2: Map: 1  Reduce: 1   Cumulative CPU: 2.31 sec   HDFS Read: 11501 HDFS Write: 1049 SUCCESS
+Total MapReduce CPU Time Spent: 6 seconds 170 msec
+OK
+Time taken: 36.802 seconds
+
+
+[+] Calling HIVE Job UserItemVisitAnalysis.hql
+
+Logging initialized using configuration in jar:file:/usr/local/hive/lib/hive-common-2.3.9.jar!/hive-log4j2.properties Async: true
+OK
+Time taken: 3.295 seconds
+OK
+Time taken: 0.405 seconds
+WARNING: Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
+Query ID = hadoopusr_20221208141606_9edaf784-36b1-4ab1-8f9f-8e90176f3fed
+Total jobs = 2
+Launching Job 1 out of 2
+Number of reduce tasks not specified. Estimated from input data size: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1670481149141_0006, Tracking URL = http://uvsingh-workstation:8088/proxy/application_1670481149141_0006/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1670481149141_0006
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+2022-12-08 14:16:12,681 Stage-1 map = 0%,  reduce = 0%
+2022-12-08 14:16:17,855 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 2.93 sec
+2022-12-08 14:16:21,957 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 4.37 sec
+MapReduce Total cumulative CPU time: 4 seconds 370 msec
+Ended Job = job_1670481149141_0006
+Launching Job 2 out of 2
+Number of reduce tasks determined at compile time: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1670481149141_0007, Tracking URL = http://uvsingh-workstation:8088/proxy/application_1670481149141_0007/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1670481149141_0007
+Hadoop job information for Stage-2: number of mappers: 1; number of reducers: 1
+2022-12-08 14:16:32,529 Stage-2 map = 0%,  reduce = 0%
+2022-12-08 14:16:37,718 Stage-2 map = 100%,  reduce = 0%, Cumulative CPU 1.22 sec
+2022-12-08 14:16:41,858 Stage-2 map = 100%,  reduce = 100%, Cumulative CPU 2.59 sec
+MapReduce Total cumulative CPU time: 2 seconds 590 msec
+Ended Job = job_1670481149141_0007
+Loading data to table clickstream_db.useritemvisit
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 4.37 sec   HDFS Read: 22017091 HDFS Write: 752 SUCCESS
+Stage-Stage-2: Map: 1  Reduce: 1   Cumulative CPU: 2.59 sec   HDFS Read: 11408 HDFS Write: 997 SUCCESS
+Total MapReduce CPU Time Spent: 6 seconds 960 msec
+OK
+Time taken: 37.997 seconds
+
+
+[+] Calling Spark Job DayWiseTrafficAnalysis.py
+22/12/08 14:16:46 WARN Utils: Your hostname, uvsingh-workstation resolves to a loopback address: 127.0.1.1; using 10.0.2.15 instead (on interface enp0s3)
+22/12/08 14:16:46 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+22/12/08 14:16:47 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[Stage 0:>                                                        (0 + 3) / 124][Stage 0:>                                                        (1 + 5) / 124][Stage 0:=========>                                              (20 + 3) / 124][Stage 0:=================>                                      (38 + 3) / 124][Stage 0:=========================>                              (56 + 3) / 124][Stage 0:=====================================>                  (83 + 3) / 124][Stage 0:================================================>      (110 + 4) / 124]                                                                                [Stage 1:>                                                          (0 + 3) / 4]                                                                                2022-12-08T14:16:59,748 INFO [Thread-3] org.apache.hadoop.hive.conf.HiveConf - Found configuration file file:/usr/local/hive/conf/hive-site.xml
+2022-12-08T14:17:00,187 WARN [Thread-3] org.apache.hadoop.hive.conf.HiveConf - HiveConf of name hive.stats.jdbc.timeout does not exist
+2022-12-08T14:17:00,188 WARN [Thread-3] org.apache.hadoop.hive.conf.HiveConf - HiveConf of name hive.stats.retries.wait does not exist
+2022-12-08T14:17:00,188 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: Opening raw store with implementation class:org.apache.hadoop.hive.metastore.ObjectStore
+2022-12-08T14:17:00,228 INFO [Thread-3] org.apache.hadoop.hive.metastore.ObjectStore - ObjectStore, initialize called
+2022-12-08T14:17:00,331 INFO [Thread-3] DataNucleus.Persistence - Property hive.metastore.integral.jdo.pushdown unknown - will be ignored
+2022-12-08T14:17:00,332 INFO [Thread-3] DataNucleus.Persistence - Property datanucleus.cache.level2 unknown - will be ignored
+2022-12-08T14:17:00,535 INFO [Thread-3] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Started.
+2022-12-08T14:17:00,917 INFO [Thread-3] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Started.
+2022-12-08T14:17:01,264 INFO [Thread-3] org.apache.hadoop.hive.metastore.ObjectStore - Setting MetaStore object pin classes with hive.metastore.cache.pinobjtypes="Table,StorageDescriptor,SerDeInfo,Partition,Database,Type,FieldSchema,Order"
+2022-12-08T14:17:02,615 INFO [Thread-3] org.apache.hadoop.hive.metastore.MetaStoreDirectSql - Using direct SQL, underlying DB is MYSQL
+2022-12-08T14:17:02,617 INFO [Thread-3] org.apache.hadoop.hive.metastore.ObjectStore - Initialized ObjectStore
+2022-12-08T14:17:02,721 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - Added admin role in metastore
+2022-12-08T14:17:02,724 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - Added public role in metastore
+2022-12-08T14:17:02,743 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - No user is added in admin role, since config is empty
+2022-12-08T14:17:02,802 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_database: default
+2022-12-08T14:17:02,804 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_database: default	
+2022-12-08T14:17:02,811 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_table : db=clickstream_db tbl=daywise_traffic_analysis
+2022-12-08T14:17:02,811 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_table : db=clickstream_db tbl=daywise_traffic_analysis	
+2022-12-08T14:17:02,895 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_database: global_temp
+2022-12-08T14:17:02,895 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_database: global_temp	
+2022-12-08T14:17:02,898 WARN [Thread-3] org.apache.hadoop.hive.metastore.ObjectStore - Failed to get database global_temp, returning NoSuchObjectException
+2022-12-08T14:17:02,904 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_database: clickstream_db
+2022-12-08T14:17:02,904 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_database: clickstream_db	
+2022-12-08T14:17:02,907 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_table : db=clickstream_db tbl=daywise_traffic_analysis
+2022-12-08T14:17:02,908 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_table : db=clickstream_db tbl=daywise_traffic_analysis	
+2022-12-08T14:17:02,927 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_table : db=clickstream_db tbl=daywise_traffic_analysis
+2022-12-08T14:17:02,928 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_table : db=clickstream_db tbl=daywise_traffic_analysis	
+2022-12-08T14:17:03,033 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_database: clickstream_db
+2022-12-08T14:17:03,033 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_database: clickstream_db	
+2022-12-08T14:17:03,036 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_table : db=clickstream_db tbl=daywise_traffic_analysis
+2022-12-08T14:17:03,037 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_table : db=clickstream_db tbl=daywise_traffic_analysis	
+2022-12-08T14:17:03,059 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_database: clickstream_db
+2022-12-08T14:17:03,059 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_database: clickstream_db	
+2022-12-08T14:17:03,064 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_table : db=clickstream_db tbl=daywise_traffic_analysis
+2022-12-08T14:17:03,064 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_table : db=clickstream_db tbl=daywise_traffic_analysis	
+2022-12-08T14:17:03,081 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: drop_table : db=clickstream_db tbl=daywise_traffic_analysis
+2022-12-08T14:17:03,081 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=drop_table : db=clickstream_db tbl=daywise_traffic_analysis	
+2022-12-08T14:17:03,456 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_table : db=clickstream_db tbl=daywise_traffic_analysis
+2022-12-08T14:17:03,457 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_table : db=clickstream_db tbl=daywise_traffic_analysis	
+2022-12-08T14:17:03,461 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_database: clickstream_db
+2022-12-08T14:17:03,461 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_database: clickstream_db	
+2022-12-08T14:17:03,465 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_database: clickstream_db
+2022-12-08T14:17:03,466 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_database: clickstream_db	
+2022-12-08T14:17:03,473 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_database: clickstream_db
+2022-12-08T14:17:03,473 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_database: clickstream_db	
+2022-12-08T14:17:03,477 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_database: clickstream_db
+2022-12-08T14:17:03,477 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_database: clickstream_db	
+[Stage 3:>                                                          (0 + 3) / 4]                                                                                [Stage 10:>                                                         (0 + 1) / 1]                                                                                2022-12-08T14:17:06,720 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_database: clickstream_db
+2022-12-08T14:17:06,720 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_database: clickstream_db	
+2022-12-08T14:17:06,724 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_table : db=clickstream_db tbl=daywise_traffic_analysis
+2022-12-08T14:17:06,724 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_table : db=clickstream_db tbl=daywise_traffic_analysis	
+2022-12-08T14:17:06,728 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_database: clickstream_db
+2022-12-08T14:17:06,728 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_database: clickstream_db	
+2022-12-08T14:17:06,732 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_table : db=clickstream_db tbl=daywise_traffic_analysis
+2022-12-08T14:17:06,733 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_table : db=clickstream_db tbl=daywise_traffic_analysis	
+2022-12-08T14:17:06,766 INFO [Thread-3] org.apache.hadoop.hive.ql.security.authorization.plugin.sqlstd.SQLStdHiveAccessController - Created SQLStdHiveAccessController for session context : HiveAuthzSessionContext [sessionString=10789ae3-9c0f-4da0-a926-fa1f4f81be21, clientType=HIVECLI]
+2022-12-08T14:17:06,768 WARN [Thread-3] org.apache.hadoop.hive.ql.session.SessionState - METASTORE_FILTER_HOOK will be ignored, since hive.security.authorization.manager is set to instance of HiveAuthorizerFactory.
+2022-12-08T14:17:06,768 INFO [Thread-3] hive.metastore - Mestastore configuration hive.metastore.filter.hook changed from org.apache.hadoop.hive.metastore.DefaultMetaStoreFilterHookImpl to org.apache.hadoop.hive.ql.security.authorization.plugin.AuthorizationMetaStoreFilterHook
+2022-12-08T14:17:06,770 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: Cleaning up thread local RawStore...
+2022-12-08T14:17:06,770 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=Cleaning up thread local RawStore...	
+2022-12-08T14:17:06,770 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: Done cleaning up thread local RawStore
+2022-12-08T14:17:06,770 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=Done cleaning up thread local RawStore	
+2022-12-08T14:17:06,850 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: create_table: Table(tableName:daywise_traffic_analysis, dbName:clickstream_db, owner:hadoopusr, createTime:1670489223, lastAccessTime:0, retention:0, sd:StorageDescriptor(cols:[FieldSchema(name:DayOfWeek, type:string, comment:null), FieldSchema(name:count, type:bigint, comment:null)], location:null, inputFormat:org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat, outputFormat:org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat, compressed:false, numBuckets:-1, serdeInfo:SerDeInfo(name:null, serializationLib:org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe, parameters:{path=hdfs://localhost:9000/user/hive/warehouse/clickstream_db.db/daywise_traffic_analysis, serialization.format=1}), bucketCols:[], sortCols:[], parameters:{}, skewedInfo:SkewedInfo(skewedColNames:[], skewedColValues:[], skewedColValueLocationMaps:{})), partitionKeys:[], parameters:{spark.sql.sources.schema={"type":"struct","fields":[{"name":"DayOfWeek","type":"string","nullable":true,"metadata":{}},{"name":"count","type":"long","nullable":true,"metadata":{}}]}, spark.sql.sources.provider=parquet, spark.sql.create.version=3.3.0}, viewOriginalText:null, viewExpandedText:null, tableType:MANAGED_TABLE, privileges:PrincipalPrivilegeSet(userPrivileges:{hadoopusr=[PrivilegeGrantInfo(privilege:INSERT, createTime:-1, grantor:hadoopusr, grantorType:USER, grantOption:true), PrivilegeGrantInfo(privilege:SELECT, createTime:-1, grantor:hadoopusr, grantorType:USER, grantOption:true), PrivilegeGrantInfo(privilege:UPDATE, createTime:-1, grantor:hadoopusr, grantorType:USER, grantOption:true), PrivilegeGrantInfo(privilege:DELETE, createTime:-1, grantor:hadoopusr, grantorType:USER, grantOption:true)]}, groupPrivileges:null, rolePrivileges:null))
+2022-12-08T14:17:06,850 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=create_table: Table(tableName:daywise_traffic_analysis, dbName:clickstream_db, owner:hadoopusr, createTime:1670489223, lastAccessTime:0, retention:0, sd:StorageDescriptor(cols:[FieldSchema(name:DayOfWeek, type:string, comment:null), FieldSchema(name:count, type:bigint, comment:null)], location:null, inputFormat:org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat, outputFormat:org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat, compressed:false, numBuckets:-1, serdeInfo:SerDeInfo(name:null, serializationLib:org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe, parameters:{path=hdfs://localhost:9000/user/hive/warehouse/clickstream_db.db/daywise_traffic_analysis, serialization.format=1}), bucketCols:[], sortCols:[], parameters:{}, skewedInfo:SkewedInfo(skewedColNames:[], skewedColValues:[], skewedColValueLocationMaps:{})), partitionKeys:[], parameters:{spark.sql.sources.schema={"type":"struct","fields":[{"name":"DayOfWeek","type":"string","nullable":true,"metadata":{}},{"name":"count","type":"long","nullable":true,"metadata":{}}]}, spark.sql.sources.provider=parquet, spark.sql.create.version=3.3.0}, viewOriginalText:null, viewExpandedText:null, tableType:MANAGED_TABLE, privileges:PrincipalPrivilegeSet(userPrivileges:{hadoopusr=[PrivilegeGrantInfo(privilege:INSERT, createTime:-1, grantor:hadoopusr, grantorType:USER, grantOption:true), PrivilegeGrantInfo(privilege:SELECT, createTime:-1, grantor:hadoopusr, grantorType:USER, grantOption:true), PrivilegeGrantInfo(privilege:UPDATE, createTime:-1, grantor:hadoopusr, grantorType:USER, grantOption:true), PrivilegeGrantInfo(privilege:DELETE, createTime:-1, grantor:hadoopusr, grantorType:USER, grantOption:true)]}, groupPrivileges:null, rolePrivileges:null))	
+2022-12-08T14:17:06,883 WARN [Thread-3] org.apache.hadoop.hive.conf.HiveConf - HiveConf of name hive.internal.ss.authz.settings.applied.marker does not exist
+2022-12-08T14:17:06,884 WARN [Thread-3] org.apache.hadoop.hive.conf.HiveConf - HiveConf of name hive.stats.jdbc.timeout does not exist
+2022-12-08T14:17:06,884 WARN [Thread-3] org.apache.hadoop.hive.conf.HiveConf - HiveConf of name hive.stats.retries.wait does not exist
+2022-12-08T14:17:06,884 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: Opening raw store with implementation class:org.apache.hadoop.hive.metastore.ObjectStore
+2022-12-08T14:17:06,885 INFO [Thread-3] org.apache.hadoop.hive.metastore.ObjectStore - ObjectStore, initialize called
+2022-12-08T14:17:06,892 INFO [Thread-3] org.apache.hadoop.hive.metastore.MetaStoreDirectSql - Using direct SQL, underlying DB is MYSQL
+2022-12-08T14:17:06,892 INFO [Thread-3] org.apache.hadoop.hive.metastore.ObjectStore - Initialized ObjectStore
+2022-12-08T14:17:06,902 INFO [Thread-3] hive.log - Updating table stats fast for daywise_traffic_analysis
+2022-12-08T14:17:06,902 INFO [Thread-3] hive.log - Updated size of table daywise_traffic_analysis to 835
+[+] Loading data into Dataframe...
++--------+----------+--------------------+--------------+--------------------+--------------------+-------------+--------+
+|  action|   logdate|             logtime|payment_method|           sessionid|                 url|       userid|location|
++--------+----------+--------------------+--------------+--------------------+--------------------+-------------+--------+
+|purchase|2022-07-06|2022-07-06 11:09:...|   Credit Card|Session_clickShop...|http://www.shop.c...|     Scarlett|   Assam|
+|    view|2022-08-16|2022-08-16 05:38:...|            NA|Session_clickShop...|http://www.shop.c...|   Tony Stark|   Assam|
+|purchase|2022-10-16|2022-10-16 05:44:...|           UPI|Session_clickShop...|http://www.shop.c...| Peter Parker|   Assam|
+|    view|2022-08-25|2022-08-25 07:19:...|            NA|Session_clickShop...|http://www.shop.c...| Peter Parker|   Assam|
+|    view|2022-10-20|2022-10-20 02:22:...|            NA|Session_clickShop...|http://www.shop.c...|   Karen Page|   Assam|
+|purchase|2022-09-04|2022-09-04 11:26:...|   Credit Card|Session_clickShop...|http://www.shop.c...|  Chris Evans|   Assam|
+|    view|2022-06-15|2022-06-15 09:09:...|            NA|Session_clickShop...|http://www.shop.c...|      Lucifer|   Assam|
+|    view|2022-10-13|2022-10-13 05:58:...|            NA|Session_clickShop...|http://www.shop.c...|     Scarlett|   Assam|
+|purchase|2022-07-23|2022-07-23 04:07:...|           COD|Session_clickShop...|http://www.shop.c...|    Nick Fury|   Assam|
+|    view|2022-09-14|2022-09-14 11:13:...|            NA|Session_clickShop...|http://www.shop.c...|   Tony Stark|   Assam|
+|purchase|2022-07-01|2022-07-01 08:35:...|           COD|Session_clickShop...|http://www.shop.c...| Clint Barton|   Assam|
+|    view|2022-11-20|2022-11-20 01:03:...|            NA|Session_clickShop...|http://www.shop.c...|Claire Temple|   Assam|
+|purchase|2022-09-04|2022-09-04 10:59:...|   Credit Card|Session_clickShop...|http://www.shop.c...|Ryan Reynolds|   Assam|
+|purchase|2022-09-24|2022-09-24 03:18:...|    Debit Card|Session_clickShop...|http://www.shop.c...|Jessica Jones|   Assam|
+|    view|2022-10-23|2022-10-23 06:52:...|            NA|Session_clickShop...|http://www.shop.c...|      Elektra|   Assam|
+|purchase|2022-11-26|2022-11-26 01:08:...|    Debit Card|Session_clickShop...|http://www.shop.c...|  Adam Waters|   Assam|
+|purchase|2022-08-31|2022-08-31 11:37:...|    NetBanking|Session_clickShop...|http://www.shop.c...|Ryan Reynolds|   Assam|
+|purchase|2022-09-28|2022-09-28 04:48:...|        PayPal|Session_clickShop...|http://www.shop.c...|      Elektra|   Assam|
+|    view|2022-10-24|2022-10-24 10:35:...|            NA|Session_clickShop...|http://www.shop.c...|   Karen Page|   Assam|
+|    view|2022-08-21|2022-08-21 06:07:...|            NA|Session_clickShop...|http://www.shop.c...| Bruce Banner|   Assam|
++--------+----------+--------------------+--------------+--------------------+--------------------+-------------+--------+
+only showing top 20 rows
+
+root
+ |-- action: string (nullable = true)
+ |-- logdate: string (nullable = true)
+ |-- logtime: string (nullable = true)
+ |-- payment_method: string (nullable = true)
+ |-- sessionid: string (nullable = true)
+ |-- url: string (nullable = true)
+ |-- userid: string (nullable = true)
+ |-- location: string (nullable = true)
+
+[+] Day Wise Traffic Analysis data stores in hive table successfully...!!!
+[+] Completed!
+
+
+[+] Calling Spark Job ShoppingCartAnalysis_item.py
+22/12/08 14:17:08 WARN Utils: Your hostname, uvsingh-workstation resolves to a loopback address: 127.0.1.1; using 10.0.2.15 instead (on interface enp0s3)
+22/12/08 14:17:08 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+22/12/08 14:17:09 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[Stage 0:>                                                        (0 + 3) / 124][Stage 0:>                                                        (1 + 4) / 124][Stage 0:========>                                               (19 + 3) / 124][Stage 0:===================>                                    (43 + 3) / 124][Stage 0:============================>                           (62 + 3) / 124][Stage 0:=======================================>                (88 + 3) / 124][Stage 0:====================================================>  (118 + 4) / 124]                                                                                [Stage 1:>                                                          (0 + 3) / 4]                                                                                2022-12-08T14:17:19,154 INFO [Thread-3] org.apache.hadoop.hive.conf.HiveConf - Found configuration file file:/usr/local/hive/conf/hive-site.xml
+2022-12-08T14:17:19,512 WARN [Thread-3] org.apache.hadoop.hive.conf.HiveConf - HiveConf of name hive.stats.jdbc.timeout does not exist
+2022-12-08T14:17:19,513 WARN [Thread-3] org.apache.hadoop.hive.conf.HiveConf - HiveConf of name hive.stats.retries.wait does not exist
+2022-12-08T14:17:19,513 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: Opening raw store with implementation class:org.apache.hadoop.hive.metastore.ObjectStore
+2022-12-08T14:17:19,545 INFO [Thread-3] org.apache.hadoop.hive.metastore.ObjectStore - ObjectStore, initialize called
+2022-12-08T14:17:19,636 INFO [Thread-3] DataNucleus.Persistence - Property hive.metastore.integral.jdo.pushdown unknown - will be ignored
+2022-12-08T14:17:19,637 INFO [Thread-3] DataNucleus.Persistence - Property datanucleus.cache.level2 unknown - will be ignored
+2022-12-08T14:17:19,863 INFO [Thread-3] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Started.
+2022-12-08T14:17:20,358 INFO [Thread-3] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Started.
+2022-12-08T14:17:21,043 INFO [Thread-3] org.apache.hadoop.hive.metastore.ObjectStore - Setting MetaStore object pin classes with hive.metastore.cache.pinobjtypes="Table,StorageDescriptor,SerDeInfo,Partition,Database,Type,FieldSchema,Order"
+2022-12-08T14:17:21,969 INFO [Thread-3] org.apache.hadoop.hive.metastore.MetaStoreDirectSql - Using direct SQL, underlying DB is MYSQL
+2022-12-08T14:17:21,972 INFO [Thread-3] org.apache.hadoop.hive.metastore.ObjectStore - Initialized ObjectStore
+2022-12-08T14:17:22,073 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - Added admin role in metastore
+2022-12-08T14:17:22,076 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - Added public role in metastore
+2022-12-08T14:17:22,100 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - No user is added in admin role, since config is empty
+2022-12-08T14:17:22,187 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_database: default
+2022-12-08T14:17:22,190 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_database: default	
+2022-12-08T14:17:22,200 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_table : db=clickstream_db tbl=shopping_cart_analysis
+2022-12-08T14:17:22,201 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_table : db=clickstream_db tbl=shopping_cart_analysis	
+2022-12-08T14:17:22,332 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_database: global_temp
+2022-12-08T14:17:22,333 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_database: global_temp	
+2022-12-08T14:17:22,335 WARN [Thread-3] org.apache.hadoop.hive.metastore.ObjectStore - Failed to get database global_temp, returning NoSuchObjectException
+2022-12-08T14:17:22,343 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_database: clickstream_db
+2022-12-08T14:17:22,343 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_database: clickstream_db	
+2022-12-08T14:17:22,348 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_table : db=clickstream_db tbl=shopping_cart_analysis
+2022-12-08T14:17:22,348 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_table : db=clickstream_db tbl=shopping_cart_analysis	
+2022-12-08T14:17:22,379 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_table : db=clickstream_db tbl=shopping_cart_analysis
+2022-12-08T14:17:22,379 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_table : db=clickstream_db tbl=shopping_cart_analysis	
+2022-12-08T14:17:22,488 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_database: clickstream_db
+2022-12-08T14:17:22,488 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_database: clickstream_db	
+2022-12-08T14:17:22,493 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_table : db=clickstream_db tbl=shopping_cart_analysis
+2022-12-08T14:17:22,493 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_table : db=clickstream_db tbl=shopping_cart_analysis	
+2022-12-08T14:17:22,516 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_database: clickstream_db
+2022-12-08T14:17:22,516 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_database: clickstream_db	
+2022-12-08T14:17:22,521 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_table : db=clickstream_db tbl=shopping_cart_analysis
+2022-12-08T14:17:22,521 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_table : db=clickstream_db tbl=shopping_cart_analysis	
+2022-12-08T14:17:22,546 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: drop_table : db=clickstream_db tbl=shopping_cart_analysis
+2022-12-08T14:17:22,546 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=drop_table : db=clickstream_db tbl=shopping_cart_analysis	
+2022-12-08T14:17:23,044 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_table : db=clickstream_db tbl=shopping_cart_analysis
+2022-12-08T14:17:23,044 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_table : db=clickstream_db tbl=shopping_cart_analysis	
+2022-12-08T14:17:23,048 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_database: clickstream_db
+2022-12-08T14:17:23,048 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_database: clickstream_db	
+2022-12-08T14:17:23,053 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_database: clickstream_db
+2022-12-08T14:17:23,053 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_database: clickstream_db	
+2022-12-08T14:17:23,059 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_database: clickstream_db
+2022-12-08T14:17:23,060 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_database: clickstream_db	
+2022-12-08T14:17:23,063 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_database: clickstream_db
+2022-12-08T14:17:23,064 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_database: clickstream_db	
+[Stage 3:>                  (0 + 3) / 4][Stage 4:>                  (0 + 0) / 4][Stage 3:>    (0 + 3) / 4][Stage 4:>    (0 + 0) / 4][Stage 5:>    (0 + 0) / 4][Stage 3:==>  (2 + 2) / 4][Stage 4:>    (0 + 1) / 4][Stage 5:>    (0 + 0) / 4][Stage 3:===> (3 + 1) / 4][Stage 4:>    (0 + 3) / 4][Stage 5:>    (0 + 0) / 4][Stage 4:=>   (1 + 3) / 4][Stage 5:>    (0 + 0) / 4][Stage 6:>    (0 + 0) / 4][Stage 4:==>  (2 + 2) / 4][Stage 5:>    (0 + 1) / 4][Stage 6:>    (0 + 0) / 4][Stage 4:===> (3 + 1) / 4][Stage 5:>    (0 + 2) / 4][Stage 6:>    (0 + 0) / 4][Stage 5:>                  (0 + 3) / 4][Stage 6:>                  (0 + 0) / 4][Stage 5:====>              (1 + 3) / 4][Stage 6:>                  (0 + 0) / 4][Stage 6:>                  (0 + 3) / 4][Stage 8:>                  (0 + 0) / 1][Stage 6:==============>    (3 + 1) / 4][Stage 8:>                  (0 + 1) / 1]                                                                                [Stage 14:>                                                         (0 + 1) / 1]                                                                                2022-12-08T14:17:28,376 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_database: clickstream_db
+2022-12-08T14:17:28,376 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_database: clickstream_db	
+2022-12-08T14:17:28,380 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_table : db=clickstream_db tbl=shopping_cart_analysis
+2022-12-08T14:17:28,381 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_table : db=clickstream_db tbl=shopping_cart_analysis	
+2022-12-08T14:17:28,385 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_database: clickstream_db
+2022-12-08T14:17:28,385 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_database: clickstream_db	
+2022-12-08T14:17:28,389 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_table : db=clickstream_db tbl=shopping_cart_analysis
+2022-12-08T14:17:28,390 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_table : db=clickstream_db tbl=shopping_cart_analysis	
+2022-12-08T14:17:28,421 INFO [Thread-3] org.apache.hadoop.hive.ql.security.authorization.plugin.sqlstd.SQLStdHiveAccessController - Created SQLStdHiveAccessController for session context : HiveAuthzSessionContext [sessionString=58d743d0-4b62-4d8f-a6c7-47f26b53cb6d, clientType=HIVECLI]
+2022-12-08T14:17:28,423 WARN [Thread-3] org.apache.hadoop.hive.ql.session.SessionState - METASTORE_FILTER_HOOK will be ignored, since hive.security.authorization.manager is set to instance of HiveAuthorizerFactory.
+2022-12-08T14:17:28,423 INFO [Thread-3] hive.metastore - Mestastore configuration hive.metastore.filter.hook changed from org.apache.hadoop.hive.metastore.DefaultMetaStoreFilterHookImpl to org.apache.hadoop.hive.ql.security.authorization.plugin.AuthorizationMetaStoreFilterHook
+2022-12-08T14:17:28,425 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: Cleaning up thread local RawStore...
+2022-12-08T14:17:28,425 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=Cleaning up thread local RawStore...	
+2022-12-08T14:17:28,425 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: Done cleaning up thread local RawStore
+2022-12-08T14:17:28,426 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=Done cleaning up thread local RawStore	
+2022-12-08T14:17:28,486 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: create_table: Table(tableName:shopping_cart_analysis, dbName:clickstream_db, owner:hadoopusr, createTime:1670489242, lastAccessTime:0, retention:0, sd:StorageDescriptor(cols:[FieldSchema(name:Item, type:string, comment:null), FieldSchema(name:view_count, type:bigint, comment:null), FieldSchema(name:addtocart_count, type:bigint, comment:null), FieldSchema(name:removefromcart_count, type:bigint, comment:null), FieldSchema(name:purchase_count, type:bigint, comment:null)], location:null, inputFormat:org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat, outputFormat:org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat, compressed:false, numBuckets:-1, serdeInfo:SerDeInfo(name:null, serializationLib:org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe, parameters:{path=hdfs://localhost:9000/user/hive/warehouse/clickstream_db.db/shopping_cart_analysis, serialization.format=1}), bucketCols:[], sortCols:[], parameters:{}, skewedInfo:SkewedInfo(skewedColNames:[], skewedColValues:[], skewedColValueLocationMaps:{})), partitionKeys:[], parameters:{spark.sql.sources.schema={"type":"struct","fields":[{"name":"Item","type":"string","nullable":true,"metadata":{}},{"name":"view_count","type":"long","nullable":true,"metadata":{}},{"name":"addtocart_count","type":"long","nullable":true,"metadata":{}},{"name":"removefromcart_count","type":"long","nullable":true,"metadata":{}},{"name":"purchase_count","type":"long","nullable":true,"metadata":{}}]}, spark.sql.sources.provider=parquet, spark.sql.create.version=3.3.0}, viewOriginalText:null, viewExpandedText:null, tableType:MANAGED_TABLE, privileges:PrincipalPrivilegeSet(userPrivileges:{hadoopusr=[PrivilegeGrantInfo(privilege:INSERT, createTime:-1, grantor:hadoopusr, grantorType:USER, grantOption:true), PrivilegeGrantInfo(privilege:SELECT, createTime:-1, grantor:hadoopusr, grantorType:USER, grantOption:true), PrivilegeGrantInfo(privilege:UPDATE, createTime:-1, grantor:hadoopusr, grantorType:USER, grantOption:true), PrivilegeGrantInfo(privilege:DELETE, createTime:-1, grantor:hadoopusr, grantorType:USER, grantOption:true)]}, groupPrivileges:null, rolePrivileges:null))
+2022-12-08T14:17:28,487 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=create_table: Table(tableName:shopping_cart_analysis, dbName:clickstream_db, owner:hadoopusr, createTime:1670489242, lastAccessTime:0, retention:0, sd:StorageDescriptor(cols:[FieldSchema(name:Item, type:string, comment:null), FieldSchema(name:view_count, type:bigint, comment:null), FieldSchema(name:addtocart_count, type:bigint, comment:null), FieldSchema(name:removefromcart_count, type:bigint, comment:null), FieldSchema(name:purchase_count, type:bigint, comment:null)], location:null, inputFormat:org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat, outputFormat:org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat, compressed:false, numBuckets:-1, serdeInfo:SerDeInfo(name:null, serializationLib:org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe, parameters:{path=hdfs://localhost:9000/user/hive/warehouse/clickstream_db.db/shopping_cart_analysis, serialization.format=1}), bucketCols:[], sortCols:[], parameters:{}, skewedInfo:SkewedInfo(skewedColNames:[], skewedColValues:[], skewedColValueLocationMaps:{})), partitionKeys:[], parameters:{spark.sql.sources.schema={"type":"struct","fields":[{"name":"Item","type":"string","nullable":true,"metadata":{}},{"name":"view_count","type":"long","nullable":true,"metadata":{}},{"name":"addtocart_count","type":"long","nullable":true,"metadata":{}},{"name":"removefromcart_count","type":"long","nullable":true,"metadata":{}},{"name":"purchase_count","type":"long","nullable":true,"metadata":{}}]}, spark.sql.sources.provider=parquet, spark.sql.create.version=3.3.0}, viewOriginalText:null, viewExpandedText:null, tableType:MANAGED_TABLE, privileges:PrincipalPrivilegeSet(userPrivileges:{hadoopusr=[PrivilegeGrantInfo(privilege:INSERT, createTime:-1, grantor:hadoopusr, grantorType:USER, grantOption:true), PrivilegeGrantInfo(privilege:SELECT, createTime:-1, grantor:hadoopusr, grantorType:USER, grantOption:true), PrivilegeGrantInfo(privilege:UPDATE, createTime:-1, grantor:hadoopusr, grantorType:USER, grantOption:true), PrivilegeGrantInfo(privilege:DELETE, createTime:-1, grantor:hadoopusr, grantorType:USER, grantOption:true)]}, groupPrivileges:null, rolePrivileges:null))	
+2022-12-08T14:17:28,508 WARN [Thread-3] org.apache.hadoop.hive.conf.HiveConf - HiveConf of name hive.internal.ss.authz.settings.applied.marker does not exist
+2022-12-08T14:17:28,508 WARN [Thread-3] org.apache.hadoop.hive.conf.HiveConf - HiveConf of name hive.stats.jdbc.timeout does not exist
+2022-12-08T14:17:28,508 WARN [Thread-3] org.apache.hadoop.hive.conf.HiveConf - HiveConf of name hive.stats.retries.wait does not exist
+2022-12-08T14:17:28,509 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: Opening raw store with implementation class:org.apache.hadoop.hive.metastore.ObjectStore
+2022-12-08T14:17:28,509 INFO [Thread-3] org.apache.hadoop.hive.metastore.ObjectStore - ObjectStore, initialize called
+2022-12-08T14:17:28,516 INFO [Thread-3] org.apache.hadoop.hive.metastore.MetaStoreDirectSql - Using direct SQL, underlying DB is MYSQL
+2022-12-08T14:17:28,517 INFO [Thread-3] org.apache.hadoop.hive.metastore.ObjectStore - Initialized ObjectStore
+2022-12-08T14:17:28,528 INFO [Thread-3] hive.log - Updating table stats fast for shopping_cart_analysis
+2022-12-08T14:17:28,529 INFO [Thread-3] hive.log - Updated size of table shopping_cart_analysis to 2262
+[+] Loading data into dataframe..
++--------+----------+--------------------+--------------+--------------------+--------------------+-------------+--------+
+|  action|   logdate|             logtime|payment_method|           sessionid|                 url|       userid|location|
++--------+----------+--------------------+--------------+--------------------+--------------------+-------------+--------+
+|purchase|2022-07-06|2022-07-06 11:09:...|   Credit Card|Session_clickShop...|http://www.shop.c...|     Scarlett|   Assam|
+|    view|2022-08-16|2022-08-16 05:38:...|            NA|Session_clickShop...|http://www.shop.c...|   Tony Stark|   Assam|
+|purchase|2022-10-16|2022-10-16 05:44:...|           UPI|Session_clickShop...|http://www.shop.c...| Peter Parker|   Assam|
+|    view|2022-08-25|2022-08-25 07:19:...|            NA|Session_clickShop...|http://www.shop.c...| Peter Parker|   Assam|
+|    view|2022-10-20|2022-10-20 02:22:...|            NA|Session_clickShop...|http://www.shop.c...|   Karen Page|   Assam|
+|purchase|2022-09-04|2022-09-04 11:26:...|   Credit Card|Session_clickShop...|http://www.shop.c...|  Chris Evans|   Assam|
+|    view|2022-06-15|2022-06-15 09:09:...|            NA|Session_clickShop...|http://www.shop.c...|      Lucifer|   Assam|
+|    view|2022-10-13|2022-10-13 05:58:...|            NA|Session_clickShop...|http://www.shop.c...|     Scarlett|   Assam|
+|purchase|2022-07-23|2022-07-23 04:07:...|           COD|Session_clickShop...|http://www.shop.c...|    Nick Fury|   Assam|
+|    view|2022-09-14|2022-09-14 11:13:...|            NA|Session_clickShop...|http://www.shop.c...|   Tony Stark|   Assam|
+|purchase|2022-07-01|2022-07-01 08:35:...|           COD|Session_clickShop...|http://www.shop.c...| Clint Barton|   Assam|
+|    view|2022-11-20|2022-11-20 01:03:...|            NA|Session_clickShop...|http://www.shop.c...|Claire Temple|   Assam|
+|purchase|2022-09-04|2022-09-04 10:59:...|   Credit Card|Session_clickShop...|http://www.shop.c...|Ryan Reynolds|   Assam|
+|purchase|2022-09-24|2022-09-24 03:18:...|    Debit Card|Session_clickShop...|http://www.shop.c...|Jessica Jones|   Assam|
+|    view|2022-10-23|2022-10-23 06:52:...|            NA|Session_clickShop...|http://www.shop.c...|      Elektra|   Assam|
+|purchase|2022-11-26|2022-11-26 01:08:...|    Debit Card|Session_clickShop...|http://www.shop.c...|  Adam Waters|   Assam|
+|purchase|2022-08-31|2022-08-31 11:37:...|    NetBanking|Session_clickShop...|http://www.shop.c...|Ryan Reynolds|   Assam|
+|purchase|2022-09-28|2022-09-28 04:48:...|        PayPal|Session_clickShop...|http://www.shop.c...|      Elektra|   Assam|
+|    view|2022-10-24|2022-10-24 10:35:...|            NA|Session_clickShop...|http://www.shop.c...|   Karen Page|   Assam|
+|    view|2022-08-21|2022-08-21 06:07:...|            NA|Session_clickShop...|http://www.shop.c...| Bruce Banner|   Assam|
++--------+----------+--------------------+--------------+--------------------+--------------------+-------------+--------+
+only showing top 20 rows
+
+root
+ |-- action: string (nullable = true)
+ |-- logdate: string (nullable = true)
+ |-- logtime: string (nullable = true)
+ |-- payment_method: string (nullable = true)
+ |-- sessionid: string (nullable = true)
+ |-- url: string (nullable = true)
+ |-- userid: string (nullable = true)
+ |-- location: string (nullable = true)
+
+[+] Creating view of actions for table join query...
+[+] ShoppingCartAnalysis_item data stored into Hive table successfully...!!!
+[+] Completed!
+
+
+[+] Calling Spark Job UserCartAnalysis.py
+22/12/08 14:17:30 WARN Utils: Your hostname, uvsingh-workstation resolves to a loopback address: 127.0.1.1; using 10.0.2.15 instead (on interface enp0s3)
+22/12/08 14:17:30 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+22/12/08 14:17:31 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[Stage 0:>                                                        (0 + 3) / 124][Stage 0:>                                                        (1 + 5) / 124][Stage 0:========>                                               (18 + 4) / 124][Stage 0:====================>                                   (45 + 3) / 124][Stage 0:===========================>                            (61 + 3) / 124][Stage 0:===============================>                        (69 + 3) / 124][Stage 0:=====================================>                  (82 + 3) / 124][Stage 0:============================================>           (98 + 3) / 124][Stage 0:=====================================================> (121 + 3) / 124]                                                                                [Stage 1:>                                                          (0 + 3) / 4][Stage 1:============================================>              (3 + 1) / 4]                                                                                2022-12-08T14:17:41,755 INFO [Thread-3] org.apache.hadoop.hive.conf.HiveConf - Found configuration file file:/usr/local/hive/conf/hive-site.xml
+2022-12-08T14:17:42,200 WARN [Thread-3] org.apache.hadoop.hive.conf.HiveConf - HiveConf of name hive.stats.jdbc.timeout does not exist
+2022-12-08T14:17:42,201 WARN [Thread-3] org.apache.hadoop.hive.conf.HiveConf - HiveConf of name hive.stats.retries.wait does not exist
+2022-12-08T14:17:42,201 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: Opening raw store with implementation class:org.apache.hadoop.hive.metastore.ObjectStore
+2022-12-08T14:17:42,232 INFO [Thread-3] org.apache.hadoop.hive.metastore.ObjectStore - ObjectStore, initialize called
+2022-12-08T14:17:42,319 INFO [Thread-3] DataNucleus.Persistence - Property hive.metastore.integral.jdo.pushdown unknown - will be ignored
+2022-12-08T14:17:42,320 INFO [Thread-3] DataNucleus.Persistence - Property datanucleus.cache.level2 unknown - will be ignored
+2022-12-08T14:17:42,557 INFO [Thread-3] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Started.
+2022-12-08T14:17:42,941 INFO [Thread-3] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Started.
+2022-12-08T14:17:43,124 INFO [Thread-3] org.apache.hadoop.hive.metastore.ObjectStore - Setting MetaStore object pin classes with hive.metastore.cache.pinobjtypes="Table,StorageDescriptor,SerDeInfo,Partition,Database,Type,FieldSchema,Order"
+2022-12-08T14:17:44,170 INFO [Thread-3] org.apache.hadoop.hive.metastore.MetaStoreDirectSql - Using direct SQL, underlying DB is MYSQL
+2022-12-08T14:17:44,173 INFO [Thread-3] org.apache.hadoop.hive.metastore.ObjectStore - Initialized ObjectStore
+2022-12-08T14:17:44,278 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - Added admin role in metastore
+2022-12-08T14:17:44,281 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - Added public role in metastore
+2022-12-08T14:17:44,321 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - No user is added in admin role, since config is empty
+2022-12-08T14:17:44,396 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_database: default
+2022-12-08T14:17:44,398 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_database: default	
+2022-12-08T14:17:44,407 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_table : db=clickstream_db tbl=user_cart_analysis
+2022-12-08T14:17:44,407 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_table : db=clickstream_db tbl=user_cart_analysis	
+2022-12-08T14:17:44,502 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_database: global_temp
+2022-12-08T14:17:44,502 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_database: global_temp	
+2022-12-08T14:17:44,505 WARN [Thread-3] org.apache.hadoop.hive.metastore.ObjectStore - Failed to get database global_temp, returning NoSuchObjectException
+2022-12-08T14:17:44,512 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_database: clickstream_db
+2022-12-08T14:17:44,512 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_database: clickstream_db	
+2022-12-08T14:17:44,517 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_table : db=clickstream_db tbl=user_cart_analysis
+2022-12-08T14:17:44,517 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_table : db=clickstream_db tbl=user_cart_analysis	
+2022-12-08T14:17:44,545 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_table : db=clickstream_db tbl=user_cart_analysis
+2022-12-08T14:17:44,545 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_table : db=clickstream_db tbl=user_cart_analysis	
+2022-12-08T14:17:44,674 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_database: clickstream_db
+2022-12-08T14:17:44,674 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_database: clickstream_db	
+2022-12-08T14:17:44,678 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_table : db=clickstream_db tbl=user_cart_analysis
+2022-12-08T14:17:44,678 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_table : db=clickstream_db tbl=user_cart_analysis	
+2022-12-08T14:17:44,701 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_database: clickstream_db
+2022-12-08T14:17:44,701 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_database: clickstream_db	
+2022-12-08T14:17:44,705 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_table : db=clickstream_db tbl=user_cart_analysis
+2022-12-08T14:17:44,705 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_table : db=clickstream_db tbl=user_cart_analysis	
+2022-12-08T14:17:44,726 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: drop_table : db=clickstream_db tbl=user_cart_analysis
+2022-12-08T14:17:44,726 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=drop_table : db=clickstream_db tbl=user_cart_analysis	
+2022-12-08T14:17:45,206 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_table : db=clickstream_db tbl=user_cart_analysis
+2022-12-08T14:17:45,206 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_table : db=clickstream_db tbl=user_cart_analysis	
+2022-12-08T14:17:45,210 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_database: clickstream_db
+2022-12-08T14:17:45,211 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_database: clickstream_db	
+2022-12-08T14:17:45,215 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_database: clickstream_db
+2022-12-08T14:17:45,216 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_database: clickstream_db	
+2022-12-08T14:17:45,223 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_database: clickstream_db
+2022-12-08T14:17:45,224 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_database: clickstream_db	
+2022-12-08T14:17:45,228 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_database: clickstream_db
+2022-12-08T14:17:45,228 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_database: clickstream_db	
+[Stage 3:>                                                          (0 + 3) / 4][Stage 3:==>  (2 + 2) / 4][Stage 4:>    (0 + 1) / 4][Stage 5:>    (0 + 0) / 4][Stage 4:>    (0 + 3) / 4][Stage 5:>    (0 + 0) / 4][Stage 6:>    (0 + 0) / 4][Stage 5:>                  (0 + 3) / 4][Stage 6:>                  (0 + 0) / 4][Stage 6:>                                                          (0 + 3) / 4][Stage 6:>                  (0 + 3) / 4][Stage 8:>                  (0 + 0) / 1][Stage 8:>                                                          (0 + 1) / 1]                                                                                [Stage 14:>                                                         (0 + 1) / 1]                                                                                2022-12-08T14:17:49,095 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_database: clickstream_db
+2022-12-08T14:17:49,096 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_database: clickstream_db	
+2022-12-08T14:17:49,102 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_table : db=clickstream_db tbl=user_cart_analysis
+2022-12-08T14:17:49,102 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_table : db=clickstream_db tbl=user_cart_analysis	
+2022-12-08T14:17:49,108 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_database: clickstream_db
+2022-12-08T14:17:49,108 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_database: clickstream_db	
+2022-12-08T14:17:49,114 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_table : db=clickstream_db tbl=user_cart_analysis
+2022-12-08T14:17:49,114 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_table : db=clickstream_db tbl=user_cart_analysis	
+2022-12-08T14:17:49,170 INFO [Thread-3] org.apache.hadoop.hive.ql.security.authorization.plugin.sqlstd.SQLStdHiveAccessController - Created SQLStdHiveAccessController for session context : HiveAuthzSessionContext [sessionString=5e0e6465-7d99-4de4-a963-80172e948099, clientType=HIVECLI]
+2022-12-08T14:17:49,172 WARN [Thread-3] org.apache.hadoop.hive.ql.session.SessionState - METASTORE_FILTER_HOOK will be ignored, since hive.security.authorization.manager is set to instance of HiveAuthorizerFactory.
+2022-12-08T14:17:49,172 INFO [Thread-3] hive.metastore - Mestastore configuration hive.metastore.filter.hook changed from org.apache.hadoop.hive.metastore.DefaultMetaStoreFilterHookImpl to org.apache.hadoop.hive.ql.security.authorization.plugin.AuthorizationMetaStoreFilterHook
+2022-12-08T14:17:49,177 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: Cleaning up thread local RawStore...
+2022-12-08T14:17:49,178 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=Cleaning up thread local RawStore...	
+2022-12-08T14:17:49,178 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: Done cleaning up thread local RawStore
+2022-12-08T14:17:49,178 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=Done cleaning up thread local RawStore	
+2022-12-08T14:17:49,269 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: create_table: Table(tableName:user_cart_analysis, dbName:clickstream_db, owner:hadoopusr, createTime:1670489264, lastAccessTime:0, retention:0, sd:StorageDescriptor(cols:[FieldSchema(name:userid, type:string, comment:null), FieldSchema(name:view_count, type:bigint, comment:null), FieldSchema(name:addtocart_count, type:bigint, comment:null), FieldSchema(name:removefromcart_count, type:bigint, comment:null), FieldSchema(name:purchase_count, type:bigint, comment:null)], location:null, inputFormat:org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat, outputFormat:org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat, compressed:false, numBuckets:-1, serdeInfo:SerDeInfo(name:null, serializationLib:org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe, parameters:{path=hdfs://localhost:9000/user/hive/warehouse/clickstream_db.db/user_cart_analysis, serialization.format=1}), bucketCols:[], sortCols:[], parameters:{}, skewedInfo:SkewedInfo(skewedColNames:[], skewedColValues:[], skewedColValueLocationMaps:{})), partitionKeys:[], parameters:{spark.sql.sources.schema={"type":"struct","fields":[{"name":"userid","type":"string","nullable":true,"metadata":{}},{"name":"view_count","type":"long","nullable":true,"metadata":{}},{"name":"addtocart_count","type":"long","nullable":true,"metadata":{}},{"name":"removefromcart_count","type":"long","nullable":true,"metadata":{}},{"name":"purchase_count","type":"long","nullable":true,"metadata":{}}]}, spark.sql.sources.provider=parquet, spark.sql.create.version=3.3.0}, viewOriginalText:null, viewExpandedText:null, tableType:MANAGED_TABLE, privileges:PrincipalPrivilegeSet(userPrivileges:{hadoopusr=[PrivilegeGrantInfo(privilege:INSERT, createTime:-1, grantor:hadoopusr, grantorType:USER, grantOption:true), PrivilegeGrantInfo(privilege:SELECT, createTime:-1, grantor:hadoopusr, grantorType:USER, grantOption:true), PrivilegeGrantInfo(privilege:UPDATE, createTime:-1, grantor:hadoopusr, grantorType:USER, grantOption:true), PrivilegeGrantInfo(privilege:DELETE, createTime:-1, grantor:hadoopusr, grantorType:USER, grantOption:true)]}, groupPrivileges:null, rolePrivileges:null))
+2022-12-08T14:17:49,270 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=create_table: Table(tableName:user_cart_analysis, dbName:clickstream_db, owner:hadoopusr, createTime:1670489264, lastAccessTime:0, retention:0, sd:StorageDescriptor(cols:[FieldSchema(name:userid, type:string, comment:null), FieldSchema(name:view_count, type:bigint, comment:null), FieldSchema(name:addtocart_count, type:bigint, comment:null), FieldSchema(name:removefromcart_count, type:bigint, comment:null), FieldSchema(name:purchase_count, type:bigint, comment:null)], location:null, inputFormat:org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat, outputFormat:org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat, compressed:false, numBuckets:-1, serdeInfo:SerDeInfo(name:null, serializationLib:org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe, parameters:{path=hdfs://localhost:9000/user/hive/warehouse/clickstream_db.db/user_cart_analysis, serialization.format=1}), bucketCols:[], sortCols:[], parameters:{}, skewedInfo:SkewedInfo(skewedColNames:[], skewedColValues:[], skewedColValueLocationMaps:{})), partitionKeys:[], parameters:{spark.sql.sources.schema={"type":"struct","fields":[{"name":"userid","type":"string","nullable":true,"metadata":{}},{"name":"view_count","type":"long","nullable":true,"metadata":{}},{"name":"addtocart_count","type":"long","nullable":true,"metadata":{}},{"name":"removefromcart_count","type":"long","nullable":true,"metadata":{}},{"name":"purchase_count","type":"long","nullable":true,"metadata":{}}]}, spark.sql.sources.provider=parquet, spark.sql.create.version=3.3.0}, viewOriginalText:null, viewExpandedText:null, tableType:MANAGED_TABLE, privileges:PrincipalPrivilegeSet(userPrivileges:{hadoopusr=[PrivilegeGrantInfo(privilege:INSERT, createTime:-1, grantor:hadoopusr, grantorType:USER, grantOption:true), PrivilegeGrantInfo(privilege:SELECT, createTime:-1, grantor:hadoopusr, grantorType:USER, grantOption:true), PrivilegeGrantInfo(privilege:UPDATE, createTime:-1, grantor:hadoopusr, grantorType:USER, grantOption:true), PrivilegeGrantInfo(privilege:DELETE, createTime:-1, grantor:hadoopusr, grantorType:USER, grantOption:true)]}, groupPrivileges:null, rolePrivileges:null))	
+2022-12-08T14:17:49,300 WARN [Thread-3] org.apache.hadoop.hive.conf.HiveConf - HiveConf of name hive.internal.ss.authz.settings.applied.marker does not exist
+2022-12-08T14:17:49,301 WARN [Thread-3] org.apache.hadoop.hive.conf.HiveConf - HiveConf of name hive.stats.jdbc.timeout does not exist
+2022-12-08T14:17:49,301 WARN [Thread-3] org.apache.hadoop.hive.conf.HiveConf - HiveConf of name hive.stats.retries.wait does not exist
+2022-12-08T14:17:49,301 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: Opening raw store with implementation class:org.apache.hadoop.hive.metastore.ObjectStore
+2022-12-08T14:17:49,302 INFO [Thread-3] org.apache.hadoop.hive.metastore.ObjectStore - ObjectStore, initialize called
+2022-12-08T14:17:49,309 INFO [Thread-3] org.apache.hadoop.hive.metastore.MetaStoreDirectSql - Using direct SQL, underlying DB is MYSQL
+2022-12-08T14:17:49,310 INFO [Thread-3] org.apache.hadoop.hive.metastore.ObjectStore - Initialized ObjectStore
+2022-12-08T14:17:49,320 INFO [Thread-3] hive.log - Updating table stats fast for user_cart_analysis
+2022-12-08T14:17:49,320 INFO [Thread-3] hive.log - Updated size of table user_cart_analysis to 2267
+[+] Loading data into dataframe..
++--------+----------+--------------------+--------------+--------------------+--------------------+-------------+--------+
+|  action|   logdate|             logtime|payment_method|           sessionid|                 url|       userid|location|
++--------+----------+--------------------+--------------+--------------------+--------------------+-------------+--------+
+|purchase|2022-07-06|2022-07-06 11:09:...|   Credit Card|Session_clickShop...|http://www.shop.c...|     Scarlett|   Assam|
+|    view|2022-08-16|2022-08-16 05:38:...|            NA|Session_clickShop...|http://www.shop.c...|   Tony Stark|   Assam|
+|purchase|2022-10-16|2022-10-16 05:44:...|           UPI|Session_clickShop...|http://www.shop.c...| Peter Parker|   Assam|
+|    view|2022-08-25|2022-08-25 07:19:...|            NA|Session_clickShop...|http://www.shop.c...| Peter Parker|   Assam|
+|    view|2022-10-20|2022-10-20 02:22:...|            NA|Session_clickShop...|http://www.shop.c...|   Karen Page|   Assam|
+|purchase|2022-09-04|2022-09-04 11:26:...|   Credit Card|Session_clickShop...|http://www.shop.c...|  Chris Evans|   Assam|
+|    view|2022-06-15|2022-06-15 09:09:...|            NA|Session_clickShop...|http://www.shop.c...|      Lucifer|   Assam|
+|    view|2022-10-13|2022-10-13 05:58:...|            NA|Session_clickShop...|http://www.shop.c...|     Scarlett|   Assam|
+|purchase|2022-07-23|2022-07-23 04:07:...|           COD|Session_clickShop...|http://www.shop.c...|    Nick Fury|   Assam|
+|    view|2022-09-14|2022-09-14 11:13:...|            NA|Session_clickShop...|http://www.shop.c...|   Tony Stark|   Assam|
+|purchase|2022-07-01|2022-07-01 08:35:...|           COD|Session_clickShop...|http://www.shop.c...| Clint Barton|   Assam|
+|    view|2022-11-20|2022-11-20 01:03:...|            NA|Session_clickShop...|http://www.shop.c...|Claire Temple|   Assam|
+|purchase|2022-09-04|2022-09-04 10:59:...|   Credit Card|Session_clickShop...|http://www.shop.c...|Ryan Reynolds|   Assam|
+|purchase|2022-09-24|2022-09-24 03:18:...|    Debit Card|Session_clickShop...|http://www.shop.c...|Jessica Jones|   Assam|
+|    view|2022-10-23|2022-10-23 06:52:...|            NA|Session_clickShop...|http://www.shop.c...|      Elektra|   Assam|
+|purchase|2022-11-26|2022-11-26 01:08:...|    Debit Card|Session_clickShop...|http://www.shop.c...|  Adam Waters|   Assam|
+|purchase|2022-08-31|2022-08-31 11:37:...|    NetBanking|Session_clickShop...|http://www.shop.c...|Ryan Reynolds|   Assam|
+|purchase|2022-09-28|2022-09-28 04:48:...|        PayPal|Session_clickShop...|http://www.shop.c...|      Elektra|   Assam|
+|    view|2022-10-24|2022-10-24 10:35:...|            NA|Session_clickShop...|http://www.shop.c...|   Karen Page|   Assam|
+|    view|2022-08-21|2022-08-21 06:07:...|            NA|Session_clickShop...|http://www.shop.c...| Bruce Banner|   Assam|
++--------+----------+--------------------+--------------+--------------------+--------------------+-------------+--------+
+only showing top 20 rows
+
+root
+ |-- action: string (nullable = true)
+ |-- logdate: string (nullable = true)
+ |-- logtime: string (nullable = true)
+ |-- payment_method: string (nullable = true)
+ |-- sessionid: string (nullable = true)
+ |-- url: string (nullable = true)
+ |-- userid: string (nullable = true)
+ |-- location: string (nullable = true)
+
+[+] Creating view of actions for table join query...
+[+] UserCartAnalysis data stored into Hive table successfully...!!!
+[+] Completed!
+
+
+[+] Starting Visualization of Analysis
+22/12/08 14:17:51 WARN Utils: Your hostname, uvsingh-workstation resolves to a loopback address: 127.0.1.1; using 10.0.2.15 instead (on interface enp0s3)
+22/12/08 14:17:51 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+22/12/08 14:17:51 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2022-12-08T14:17:56,229 INFO [Thread-3] org.apache.hadoop.hive.conf.HiveConf - Found configuration file file:/usr/local/hive/conf/hive-site.xml
+2022-12-08T14:17:56,668 WARN [Thread-3] org.apache.hadoop.hive.conf.HiveConf - HiveConf of name hive.stats.jdbc.timeout does not exist
+2022-12-08T14:17:56,669 WARN [Thread-3] org.apache.hadoop.hive.conf.HiveConf - HiveConf of name hive.stats.retries.wait does not exist
+2022-12-08T14:17:56,669 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: Opening raw store with implementation class:org.apache.hadoop.hive.metastore.ObjectStore
+2022-12-08T14:17:56,702 INFO [Thread-3] org.apache.hadoop.hive.metastore.ObjectStore - ObjectStore, initialize called
+2022-12-08T14:17:56,797 INFO [Thread-3] DataNucleus.Persistence - Property hive.metastore.integral.jdo.pushdown unknown - will be ignored
+2022-12-08T14:17:56,797 INFO [Thread-3] DataNucleus.Persistence - Property datanucleus.cache.level2 unknown - will be ignored
+2022-12-08T14:17:56,967 INFO [Thread-3] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Started.
+2022-12-08T14:17:57,294 INFO [Thread-3] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Started.
+2022-12-08T14:17:57,599 INFO [Thread-3] org.apache.hadoop.hive.metastore.ObjectStore - Setting MetaStore object pin classes with hive.metastore.cache.pinobjtypes="Table,StorageDescriptor,SerDeInfo,Partition,Database,Type,FieldSchema,Order"
+2022-12-08T14:17:58,395 INFO [Thread-3] org.apache.hadoop.hive.metastore.MetaStoreDirectSql - Using direct SQL, underlying DB is MYSQL
+2022-12-08T14:17:58,398 INFO [Thread-3] org.apache.hadoop.hive.metastore.ObjectStore - Initialized ObjectStore
+2022-12-08T14:17:58,498 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - Added admin role in metastore
+2022-12-08T14:17:58,501 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - Added public role in metastore
+2022-12-08T14:17:58,521 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - No user is added in admin role, since config is empty
+2022-12-08T14:17:58,590 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_database: default
+2022-12-08T14:17:58,592 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_database: default	
+2022-12-08T14:17:58,600 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_database: global_temp
+2022-12-08T14:17:58,600 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_database: global_temp	
+2022-12-08T14:17:58,603 WARN [Thread-3] org.apache.hadoop.hive.metastore.ObjectStore - Failed to get database global_temp, returning NoSuchObjectException
+2022-12-08T14:17:58,605 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_database: clickstream_db
+2022-12-08T14:17:58,605 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_database: clickstream_db	
+2022-12-08T14:17:58,661 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_database: clickstream_db
+2022-12-08T14:17:58,661 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_database: clickstream_db	
+2022-12-08T14:17:58,668 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_table : db=clickstream_db tbl=activeusers
+2022-12-08T14:17:58,668 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_table : db=clickstream_db tbl=activeusers	
+2022-12-08T14:17:58,808 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_table : db=clickstream_db tbl=activeusers
+2022-12-08T14:17:58,812 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_table : db=clickstream_db tbl=activeusers	
+[Stage 0:>                                                          (0 + 1) / 1]                                                                                2022-12-08T14:18:01,543 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_database: clickstream_db
+2022-12-08T14:18:01,543 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_database: clickstream_db	
+2022-12-08T14:18:01,547 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_table : db=clickstream_db tbl=daywise_traffic_analysis
+2022-12-08T14:18:01,547 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_table : db=clickstream_db tbl=daywise_traffic_analysis	
+2022-12-08T14:18:01,571 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_table : db=clickstream_db tbl=daywise_traffic_analysis
+2022-12-08T14:18:01,571 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_table : db=clickstream_db tbl=daywise_traffic_analysis	
+[Stage 1:>                                                          (0 + 1) / 1]                                                                                2022-12-08T14:18:02,657 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_database: clickstream_db
+2022-12-08T14:18:02,657 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_database: clickstream_db	
+2022-12-08T14:18:02,661 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_table : db=clickstream_db tbl=useritemvisit
+2022-12-08T14:18:02,661 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_table : db=clickstream_db tbl=useritemvisit	
+2022-12-08T14:18:02,678 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_table : db=clickstream_db tbl=useritemvisit
+2022-12-08T14:18:02,678 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_table : db=clickstream_db tbl=useritemvisit	
+2022-12-08T14:18:02,816 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_database: clickstream_db
+2022-12-08T14:18:02,817 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_database: clickstream_db	
+2022-12-08T14:18:02,822 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_table : db=clickstream_db tbl=locationwisetraffic
+2022-12-08T14:18:02,822 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_table : db=clickstream_db tbl=locationwisetraffic	
+2022-12-08T14:18:02,843 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_table : db=clickstream_db tbl=locationwisetraffic
+2022-12-08T14:18:02,843 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_table : db=clickstream_db tbl=locationwisetraffic	
+2022-12-08T14:18:02,961 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_database: clickstream_db
+2022-12-08T14:18:02,962 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_database: clickstream_db	
+2022-12-08T14:18:02,967 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_table : db=clickstream_db tbl=shopping_cart_analysis
+2022-12-08T14:18:02,967 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_table : db=clickstream_db tbl=shopping_cart_analysis	
+2022-12-08T14:18:02,985 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_table : db=clickstream_db tbl=shopping_cart_analysis
+2022-12-08T14:18:02,985 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_table : db=clickstream_db tbl=shopping_cart_analysis	
+2022-12-08T14:18:03,138 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_database: clickstream_db
+2022-12-08T14:18:03,138 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_database: clickstream_db	
+2022-12-08T14:18:03,143 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_table : db=clickstream_db tbl=user_cart_analysis
+2022-12-08T14:18:03,143 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_table : db=clickstream_db tbl=user_cart_analysis	
+2022-12-08T14:18:03,163 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore - 0: get_table : db=clickstream_db tbl=user_cart_analysis
+2022-12-08T14:18:03,163 INFO [Thread-3] org.apache.hadoop.hive.metastore.HiveMetaStore.audit - ugi=hadoopusr	ip=unknown-ip-addr	cmd=get_table : db=clickstream_db tbl=user_cart_analysis	
+[+] Dataframes creation done..
+[+] Plotting done...
+[+] Completed!
+
+
+[+] Opening Visualization WebPage
+
+

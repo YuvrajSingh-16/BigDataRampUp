@@ -1,0 +1,67 @@
+[+] Generating data
+log4j:WARN No appenders could be found for logger (org.apache.hadoop.metrics2.lib.MutableMetricsFactory).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+[+] 1000000 Rows Data Generation Done!!!
+
+
+[+] Adding new JSON to the Archive location...
+
+
+[+] Calling MR Job for LocationWise Analysis
+log4j:WARN No appenders could be found for logger (org.apache.hadoop.metrics2.lib.MutableMetricsFactory).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+[+] mapreduce.framework set to local
+[+] All configurations are set !!!
+Dec 06, 2022 3:52:39 PM com.uvsingh.mr.MyMapper <init>
+INFO: [+] Mapper Object Created.
+Dec 06, 2022 3:52:43 PM com.uvsingh.mr.MyCombiner <init>
+INFO: [+] MyCombiner object created.
+Dec 06, 2022 3:52:43 PM com.uvsingh.mr.MyMapper <init>
+INFO: [+] Mapper Object Created.
+Dec 06, 2022 3:53:09 PM com.uvsingh.mr.MyCombiner <init>
+INFO: [+] MyCombiner object created.
+Dec 06, 2022 3:53:10 PM com.uvsingh.mr.MyReducer <init>
+INFO: [+] MyReducer Object Created.
+Dec 06, 2022 3:53:12 PM com.uvsingh.mr.MyDriver main
+INFO: MAP-REDUCE ANALYSIS JOB COMPLETED
+
+
+[+] Inserting Data into clickstream table
+
+Logging initialized using configuration in jar:file:/usr/local/hive/lib/hive-common-2.3.9.jar!/hive-log4j2.properties Async: true
+OK
+Time taken: 3.854 seconds
+OK
+Time taken: 0.236 seconds
+Loading data to table clickstream_db.clickstream_tmp
+OK
+Time taken: 0.588 seconds
+OK
+Time taken: 3.182 seconds
+WARNING: Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
+Query ID = hadoopusr_20221206155327_f027db96-7a85-472a-a028-4d05f9c6905a
+Total jobs = 2
+Launching Job 1 out of 2
+Number of reduce tasks determined at compile time: 4
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1670308212202_0001, Tracking URL = http://uvsingh-workstation:8088/proxy/application_1670308212202_0001/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1670308212202_0001
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 4
+2022-12-06 15:53:37,861 Stage-1 map = 0%,  reduce = 0%
+2022-12-06 15:54:38,563 Stage-1 map = 0%,  reduce = 0%
+2022-12-06 15:57:06,321 Stage-1 map = 0%,  reduce = 0%, Cumulative CPU 6.39 sec
+2022-12-06 16:00:32,342 Stage-1 map = 0%,  reduce = 0%, Cumulative CPU 6.39 sec
+2022-12-06 16:00:39,809 Stage-1 map = 37%,  reduce = 0%, Cumulative CPU 56.86 sec
+2022-12-06 16:00:52,358 Stage-1 map = 75%,  reduce = 0%, Cumulative CPU 62.43 sec
+2022-12-06 16:00:55,640 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 64.29 sec
+2022-12-06 16:07:16,325 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 64.29 sec
+2022-12-06 16:08:52,525 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 64.29 sec
+2022-12-06 16:10:40,524 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 64.29 sec
+2022-12-06 16:15:45,198 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 64.29 sec
