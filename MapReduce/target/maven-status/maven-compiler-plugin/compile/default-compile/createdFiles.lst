@@ -1,0 +1,4 @@
+com/uvsingh/mr/MyMapper.class
+com/uvsingh/mr/MyCombiner.class
+com/uvsingh/mr/MyReducer.class
+com/uvsingh/mr/MyDriver.class
